@@ -1,0 +1,39 @@
+# ================================
+# Archivos compilados de Python
+# ================================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ================================
+# Entorno virtual
+# ================================
+.venv/
+
+# ================================
+# Configuración de PyCharm / IDE
+# ================================
+.idea/
+
+# ================================
+# Archivos de distribución / instalación
+# ================================
+build/
+dist/
+*.egg-info/
+
+# ================================
+# Archivos de tests generados
+# ================================
+tests/__pycache__/
+.coverage
+.pytest_cache/
+htmlcov/
+
+# ================================
+# Archivos temporales y sistema
+# ================================
+*.log
+*.tmp
+*.bak
+.DS_Store
