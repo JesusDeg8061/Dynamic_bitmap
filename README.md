@@ -12,6 +12,6 @@ Dynamic Parallel Bitmap optimizado con NumPy y multiprocessing.
 ## Instalación
 ```bash
 pip install numpy
-git clone https://github.com/tu_usuario/dynamic_bitmap.git
+git clone https://github.com/JesusDeg8061/Dynamic_bitmap.git
 cd dynamic_bitmap
 python setup.py install
