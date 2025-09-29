@@ -14,8 +14,12 @@ class TestDynamicParallelBitmap(unittest.TestCase):
         bmp2 = DynamicParallelBitmap(size=100, num_processes=2)
         bmp1.insert(5)
         bmp2.insert(5)
+
         result = DynamicParallelBitmap.parallel_join([bmp1, bmp2], num_processes=2)
-        self.assertIn(5, result)
+
+        # calcular la posición real que le corresponde a "5"
+        hashed = hash(5) % 100
+        self.assertIn(hashed, result)
 
 if __name__ == '__main__':
     unittest.main()

@@ -1,17 +1,22 @@
 # Dynamic Parallel Bitmap
 
-Dynamic Parallel Bitmap optimizado con NumPy y multiprocessing.
+Dynamic Parallel Bitmap optimizado con **NumPy**, **multiprocessing** y soporte de **IA con TensorFlow** para búsquedas inteligentes en mapas de bits segmentados.
 
-## Características
-- Vectorizado: operaciones bit a bit con NumPy
-- Dinámico: insert y delete
-- Paralelo: búsqueda y JOINs
-- Escalable: millones de registros
-- Ideal para JOINs en CRM multimepresa
+##  Características
+- **Vectorizado** → operaciones bit a bit con NumPy  
+- **Dinámico** → soporta inserciones y eliminaciones  
+- **Paralelo** → búsquedas y joins acelerados con multiprocessing  
+- **Segmentado + IA** → modelo entrenable que aprende patrones de búsqueda  
+- **Escalable** → millones de registros sin problemas  
+- **Aplicación típica** → joins y deduplicación en CRM multiempresa  
 
-## Instalación
+---
+
+##  Instalación
+
+Clonar el repositorio y usar `pip`:
+
 ```bash
-pip install numpy
 git clone https://github.com/JesusDeg8061/Dynamic_bitmap.git
-cd dynamic_bitmap
-python setup.py install
+cd Dynamic_bitmap
+pip install -e .

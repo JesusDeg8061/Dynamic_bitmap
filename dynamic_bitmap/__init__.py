@@ -1,3 +1,5 @@
 from .bitmap import DynamicParallelBitmap
-
-__all__ = ["DynamicParallelBitmap"]
+from .segmented_bitmap import SegmentedBitmap
+from . import utils
+from . import ai
+__all__ = ["DynamicParallelBitmap", "SegmentedBitmap", "utils","ai"]
