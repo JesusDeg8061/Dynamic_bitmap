@@ -1,6 +1,6 @@
 import numpy as np
 import hashlib
-
+import zlib
 class SegmentedBitmap:
     """
     Bitmap segmentado: divide el mapa principal en sub-mapas más pequeños,
@@ -41,3 +41,20 @@ class SegmentedBitmap:
     def to_array(self):
         """Convierte los segmentos en un único array concatenado"""
         return np.concatenate(self.segments)
+
+    def segment_popcounts(self):
+        """Cuenta los bits activos (1s) por segmento."""
+        return np.array([seg.sum() for seg in self.segments])
+
+    def to_bytes_for_segments(self, segs):
+        """Serializa segmentos en formato comprimido para sincronización P2P."""
+        return {i: zlib.compress(self.segments[i].tobytes()) for i in segs}
+
+    def update_from_serialized_segments(self, data):
+        """Deserializa y actualiza los segmentos a partir de datos comprimidos."""
+        for i, blob in data.items():
+            try:
+                arr = np.frombuffer(zlib.decompress(blob), dtype=np.uint8)
+                self.segments[i][:len(arr)] |= arr
+            except Exception as e:
+                print(f"Error al actualizar segmento {i}: {e}")
